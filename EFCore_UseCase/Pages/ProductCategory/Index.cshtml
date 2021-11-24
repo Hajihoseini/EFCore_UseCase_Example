@@ -1,0 +1,51 @@
+﻿@page
+@model EFCore_UseCase.Pages.ProductCategory.IndexModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<p>
+    <a asp-page="./Create" class="btn alert-success">
+        Create new category
+        </a>
+        </p>
+
+<table class="table embed-responsive border table-striped">
+    <thead>
+       <tr>
+           <td>#</td>
+           <td>Date of creation</td>
+           <td>Name</td>
+           <td>Operation</td>
+
+       </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var item in Model.productCategories)
+        {
+         <tr>
+
+            <th>
+                @item.Id
+            </th>
+                        <th>
+                @item.CreationDate
+            </th>
+                        <th>
+                @item.Name
+            </th>
+                        <th>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+            </th>
+        </tr>
+
+        }
+
+    </tbody>
+
+</table>

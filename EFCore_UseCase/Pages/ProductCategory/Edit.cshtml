@@ -1,0 +1,17 @@
+﻿@page
+@model EFCore_UseCase.Pages.ProductCategory.EditModel
+@{
+}
+
+<form method="post">
+    <div class="row" >
+        <div class="col-md-6 form-group">
+            <label asp-for="@Model.command.Name">Enter new category name :</label>
+            <input asp-for="@Model.command.Name" id="name" type="text" class="form-control" />
+        </div>
+         <input asp-for="@Model.command.Id" type="hidden" value="@Model.command.Id" />
+        <div class="col-md-12">
+            <button class="btn btn-success" type="submit">Submit Edit</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,38 @@
+﻿@page
+@model EFCore_UseCase.Pages.ProductCategoryModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table embed-responsive border table-striped">
+    <thead>
+       <tr>
+           <td>#</td>
+           <td>تاریخ ایجاد</td>
+           <td>نام</td>
+       </tr>
+    </thead>
+    <tbody>
+         <tr>
+
+        @foreach(var item in Model.productCategories)
+        {
+            <th>
+                @item.Id
+            </th>
+                        <th>
+                @item.CreationDate
+            </th>
+                        <th>
+                @item.Name
+            </th>
+        }
+        </tr>
+
+    </tbody>
+
+</table>
