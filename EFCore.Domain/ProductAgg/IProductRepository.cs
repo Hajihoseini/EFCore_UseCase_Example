@@ -13,5 +13,7 @@ namespace EFCore.Domain.ProductAgg
         EditProduct GetDetails(int id); 
         void Create(Product product);
         void SaveChanges();
+        bool Exists(string name, int categoryId);
+        List<ProductViewModel> Search(ProductSearchModel searchModel);
     }
 }

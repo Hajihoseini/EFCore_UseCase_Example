@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFCore.Application.Contracts.Product
 {
-    internal interface IProductApplication
+    public interface IProductApplication
     {
         void Create(CreateProduct command);
         void Edit(EditProduct command);
