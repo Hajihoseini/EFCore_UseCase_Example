@@ -1,6 +1,8 @@
 
 using EFCore.Application;
+using EFCore.Application.Contracts.Product;
 using EFCore.Application.Contracts.ProductCategory;
+using EFCore.Domain.ProductAgg;
 using EFCore.Domain.ProductCategoryAgg;
 using EFCore.infrastructure.EFCore;
 using EFCore.infrastructure.EFCore.Repository;
@@ -29,6 +31,9 @@ namespace EFCore_UseCase
 
             services.AddTransient<IproductCategoryApplication, ProductCategoryApplication>();
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+
+            services.AddTransient<IProductApplication,ProductApplication>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddDbContext<EFContext>(x=>x.UseSqlServer(Configuration.GetConnectionString("EFCoreConnectionString")));
 

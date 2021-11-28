@@ -30,6 +30,16 @@ namespace EFCore.infrastructure.EFCore.Repository
             return _context.ProductCategories.FirstOrDefault(c => c.Id == id);
         }
 
+        public List<ProductCategoryViewModel> GetAll()
+        {
+            return _context.ProductCategories.Select(x => new ProductCategoryViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+
+            }).ToList();
+        }
+
         public EditProductCategory GetDetails(int id)
         {
             return _context.ProductCategories.Select(x=>new EditProductCategory {

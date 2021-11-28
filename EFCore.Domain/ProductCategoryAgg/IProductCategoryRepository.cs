@@ -15,6 +15,6 @@ namespace EFCore.Domain.ProductCategoryAgg
         EditProductCategory GetDetails(int id);
         ProductCategory Get(int id);
         List<ProductCategoryViewModel> Search(string name);
-
+        List<ProductCategoryViewModel> GetAll();
     }
 }

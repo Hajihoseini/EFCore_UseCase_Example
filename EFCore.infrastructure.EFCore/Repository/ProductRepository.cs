@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EFCore.infrastructure.EFCore.Repository
 {
-    internal class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly EFContext _context;
 
@@ -66,7 +66,7 @@ namespace EFCore.infrastructure.EFCore.Repository
             if(searchModel.IsRemoved == true) query = query.Where(x => x.IsRemoved == true);    
             if(!string.IsNullOrWhiteSpace(searchModel.Name)) query = query.Where(x=>x.Name.Contains(searchModel.Name));
 
-            return query.OrderByDescending(x => x.Id).ToList();
+            return query.OrderByDescending(x => x.Id).AsNoTracking().ToList();
         }
     }
 }

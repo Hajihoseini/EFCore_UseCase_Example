@@ -1,0 +1,29 @@
+﻿@page
+@model EFCore_UseCase.Pages.Product.EditModel
+@{
+}
+
+<form method="post">
+    <div class="row" >
+        <div class="col-md-6 form-group">
+            <label asp-for="@Model.command.Name" >Enter your product name :</label>
+            <input asp-for="@Model.command.Name" id="name" type="text" class="form-control" />
+        </div>
+
+                <div class="col-md-6 form-group">
+            <label asp-for="@Model.command.UnitPrice">Enter your product price :</label>
+            <input asp-for="@Model.command.UnitPrice" id="UnitPrice" type="number" class="form-control" />
+        </div>
+
+                <div class="col-md-6 form-group">
+            <label asp-for="@Model.command.CategoryId">Enter your category Group :</label>
+            <select asp-items="@Model.ProductCategories"asp-for="@Model.command.CategoryId" id="CategoryId">
+                <option value="0">Please select a category</option>
+            </select>
+        </div>
+        <input asp-for="@Model.command.Id" value="@Model.command.Id" hidden id="UnitPrice" type="number" class="form-control" />
+        <div class="col-md-12">
+            <button class="btn btn-success" type="submit">Create</button>
+        </div>
+    </div>
+</form>

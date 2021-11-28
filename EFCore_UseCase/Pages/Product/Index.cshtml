@@ -1,0 +1,58 @@
+﻿@page
+@model EFCore_UseCase.Pages.Product.IndexModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<p>All products</p>
+<p>
+    <a asp-page="./Create" class="btn alert-success">
+        Create new category
+        </a>
+        </p>
+
+<table class="table embed-responsive border table-striped">
+    <thead>
+       <tr>
+           <td>#</td>
+           <td>Product Name</td>
+           <td>Price</td>
+           <td>Category Group</td>
+           <td>Date of creation</td>
+           <td>Operation</td>
+
+
+       </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var item in Model.products)
+        {
+         <tr>
+
+            <th>@item.Id</th>
+            <th>@item.Name</th>
+            <th>@item.UnitPrice</th>
+            <th>@item.Category</th>
+            <th>@item.CreationDate</th>
+            <th>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                @if(item.IsRemoved)
+                {
+                        <a asp-page-handler="Remove" asp-route-id="@item.Id" class="btn btn-warning">Restore</a>
+                    }else
+                    {
+                        <a asp-page-handler="Restore" asp-route-id="@item.Id" class="btn btn-danger">Remove</a>
+                    }
+
+            </th>
+        </tr>
+
+        }
+
+    </tbody>
+
+</table>
